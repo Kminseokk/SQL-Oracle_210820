@@ -1,0 +1,7 @@
+select 
+    EMPNO, ENAME, HIREDATE,
+    TO_CHAR(NEXT_DAY(ADD_MONTHS(HIREDATE,3) ,'월요일'), 'YYYY-MM-DD') AS R_JOB,
+    DECODE(COMM,null,'N/A',COMM),
+    NVL2(COMM, TO_CHAR(COMM), 'N/A') AS COMMM,
+    NVL(TO_CHAR(COMM),'N/A')
+from emp;
